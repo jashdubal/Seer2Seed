@@ -1,0 +1,12 @@
+retrieve_movie_year: |
+  [no prose][JSON only output]
+  Given the movie {movie} give me the official title of the movie and the year it was released.
+retrieve_shot_one_user_prompt: |
+  [no prose][JSON only output]
+  Given the movie Wall-E give me the first shot of the movie.
+retrieve_shot_one_assistant_prompt: |
+  {{
+    "title": "Wall-E",
+    "year": 2008
+  }}
+  
