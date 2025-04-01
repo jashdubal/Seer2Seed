@@ -31,8 +31,6 @@ def get_movie_info(movie_name: str, client: OpenAI, model: str) -> Dict[str, Any
         prompts = load_prompts()
         
         movie_year_retrieval_prompt = prompts['retrieve_movie_year'].format(movie=f"\"{movie_name}\"")
-        movie_year_retrieval_user_shot_one = prompts['retrieve_shot_one_user_prompt']
-        movie_year_retrieval_assistant_shot_one = prompts['retrieve_shot_one_assistant_prompt']
         
         logger.info(f"Requesting information for movie: {movie_name}")
         
@@ -40,11 +38,11 @@ def get_movie_info(movie_name: str, client: OpenAI, model: str) -> Dict[str, Any
             model=model,
             messages=[
                 {"role": "system", "content": "You are a helpful assistant that always outputs in valid JSON format. The only valid keys for the JSON output are 'title' and 'year'."},
-                {"role": "user", "content": movie_year_retrieval_user_shot_one},
-                {"role": "assistant", "content": movie_year_retrieval_assistant_shot_one},
                 {"role": "user", "content": movie_year_retrieval_prompt},
             ],
             temperature=0.05,
+            max_tokens=1000,
+            n=1
         )
         
         json_content = completion.choices[0].message.content
