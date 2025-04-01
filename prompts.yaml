@@ -1,9 +1,15 @@
 retrieve_movie_year: |
   [no prose][JSON only output]
-  Given the movie {movie} give me the official title of the movie and the year it was released.
+  
+  Given the user input, find the movie that best matches the description. The user may directly provide the movie name, description of the movie, or a preference on what kind of movie they're looking for. You will locate the movie that best matches the user's input.
+  ### User input
+  {movie}
 retrieve_shot_one_user_prompt: |
   [no prose][JSON only output]
-  Given the movie Wall-E give me the first shot of the movie.
+  
+  Given the user input, find the movie that best matches the description. The user may directly provide the movie name, description of the movie, or a preference on what kind of movie they're looking for. You will locate the movie that best matches the user's input.
+  ### User input
+  Pixar movie with the little trash robot
 retrieve_shot_one_assistant_prompt: |
   {{
     "title": "Wall-E",
