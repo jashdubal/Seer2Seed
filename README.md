@@ -1,4 +1,8 @@
 # Seer2Seed
+
+![Seer2Seed Architecture](seer2seed.drawio.png)
+
+
 An interface that interprets what a user wants to watch, crawls to find the best torrent, seeds it and streams it back to the user.
 - make it a web application? (is this the most universal?)
 
